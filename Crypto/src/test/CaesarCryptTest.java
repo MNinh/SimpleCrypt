@@ -1,10 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class ROT13Test {
-
+public class CaesarCryptTest {
 
     @Test
     public void rotateStringTest0() {
@@ -13,11 +10,11 @@ public class ROT13Test {
         String s2 = "ABCDEF";
 
         // When
-        ROT13 cipher = new ROT13();
+        CaesarCrypt cipher = new CaesarCrypt();
         String actual = cipher.rotate(s1, 'A');
 
         // Then
-        assertTrue(actual.equals(s2));
+        Assert.assertTrue(actual.equals(s2));
     }
 
     @Test
@@ -27,11 +24,11 @@ public class ROT13Test {
         String s2 = "DEFABC";
 
         // When
-        ROT13 cipher = new ROT13();
+        CaesarCrypt cipher = new CaesarCrypt();
         String actual = cipher.rotate(s1, 'D');
 
         // Then
-        assertTrue(actual.equals(s2));
+        Assert.assertTrue(actual.equals(s2));
     }
 
     @Test
@@ -41,58 +38,58 @@ public class ROT13Test {
         String s2 = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
         // When
-        ROT13 cipher = new ROT13();
+        CaesarCrypt cipher = new CaesarCrypt();
         String actual = cipher.rotate(s1, 'N');
         System.out.println(s1);
         System.out.println(actual);
         // Then
-        assertTrue(actual.equals(s2));
+        Assert.assertTrue(actual.equals(s2));
     }
 
     @Test
     public void cryptTest1() {
         // Given
-        ROT13 cipher = new ROT13('a', 'n');
+        CaesarCrypt cipher = new CaesarCrypt();
 
         String Q1 = "Why did the chicken cross the road?";
-        String A1 = "Jul qvq gur puvpxra pebff gur ebnq?";
+        String A1 = "Zkb glg wkh fklfnhq furvv wkh urdg?";
 
-        String Q2 = "Gb trg gb gur bgure fvqr!";
+        String Q2 = "Wr jhw wr wkh rwkhu vlgh!";
         String A2 = "To get to the other side!";
-
         // When
         String actual = cipher.encrypt(Q1);
         System.out.println(Q1);
         System.out.println(A1);
         // Then
-        assertTrue(actual.equals(A1));
+        Assert.assertTrue(actual.equals(A1));
 
         // When
         String actual2 = cipher.decrypt(Q2);
         System.out.println(Q2);
         System.out.println(A2);
         // Then
-        assertTrue(actual2.equals(A2));
+        Assert.assertTrue(actual2.equals(A2));
     }
     @Test
     public void cryptTest2() {
         // Given
-        ROT13 cipher = new ROT13('a', 'n');
+        CaesarCrypt cipher = new CaesarCrypt();
 
         String Q1 = "Why did the chicken cross the road?";
         System.out.println(Q1);
 
         // When
-        String actual = cipher.crypt(cipher.crypt(Q1));
+        String encrypting = cipher.encrypt(Q1);
+        String actual = cipher.decrypt(cipher.encrypt(Q1));
         System.out.println(actual);
         // Then
-        assertTrue(actual.equals(Q1));
+        Assert.assertTrue(actual.equals(Q1));
     }
 
     @Test
     public void cryptUpperTest() {
         // Given
-        ROT13 cipher = new ROT13();
+        CaesarCrypt cipher = new CaesarCrypt();
 
         String Q1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         System.out.println(Q1);
@@ -109,7 +106,7 @@ public class ROT13Test {
     @Test
     public void cryptLowerTest() {
         // Given
-        ROT13 cipher = new ROT13();
+        CaesarCrypt cipher = new CaesarCrypt();
 
         String Q1 = "abcdefghijklmnopqrstuvwxyz";
         System.out.println(Q1);
@@ -122,6 +119,5 @@ public class ROT13Test {
         // Then
         Assert.assertTrue(actual.equals(Q1));
     }
-
 
 }

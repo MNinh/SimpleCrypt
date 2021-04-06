@@ -1,14 +1,12 @@
-public class CaesarCrypt extends ROT13 {
+public class MikeCrypt extends ROT13{
 
-
-
-    public CaesarCrypt(){
-        this.shift = 3;
+    public MikeCrypt(){
+        this.shift = 22;
     }
 
     @Override
     public String encrypt(String text) {
-        int shift = 3;
+        int shift = 22;
         StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
@@ -24,14 +22,17 @@ public class CaesarCrypt extends ROT13 {
                 output.append(indivChar);
             }
         }
+
         return output.toString();
+
+
     }
 
 
 
     @Override
     public String decrypt(String text) {
-        int shift = 3;
+        int shift = 22;
         StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
@@ -47,6 +48,8 @@ public class CaesarCrypt extends ROT13 {
                 output.append(indivChar);
             }
         }
+
         return output.toString();
     }
+
 }

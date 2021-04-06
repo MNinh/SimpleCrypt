@@ -53,26 +53,4 @@ public class ROT13  {
         return rotated;
     }
 
-//        Integer shift = c - 'A';
-//        int lengthOfInput = s.length();
-//        StringBuilder output = new StringBuilder();
-//
-//        for (int i = 0; i < lengthOfInput; i++) {
-//            char indivChar = s.charAt(i);
-//            char newChar = indivChar;
-//
-//            if (newChar >= 'a' && newChar <= 'z') {
-//                newChar = (char) ((indivChar - 'a' + shift) % 26 + 'a');
-//                output.append(newChar);
-//            } else if (newChar >= 'A' && newChar <= 'Z') {
-//                newChar = (char) ((indivChar - 'A' + shift) % 26 + 'A');
-//                output.append(newChar);
-//            } else {
-//                output.append(indivChar);
-//            }
-//        }
-//        System.out.println(output.toString());
-//        return output.toString();
-
-
 }
